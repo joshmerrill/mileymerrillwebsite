@@ -24,13 +24,13 @@
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, 40px);
-      grid-template-rows: repeat(auto-fill, 40px);
+      grid-template-columns: repeat(auto-fill, 60px);
+      grid-template-rows: repeat(auto-fill, 60px);
       position: absolute;
-      width: 150vw;
-      height: 150vh;
-      top: -25vh;
-      left: -25vw;
+      width: 160vw;
+      height: 160vh;
+      top: -30vh;
+      left: -30vw;
       z-index: 1;
       opacity: 0.07;
       pointer-events: none;
@@ -43,34 +43,34 @@
     }
 
     .cell {
-      width: 40px;
-      height: 40px;
+      width: 60px;
+      height: 60px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
     .shape {
-      width: 10px;
-      height: 10px;
+      width: 18px;
+      height: 18px;
       background-color: white;
       animation: morphShape 6s infinite ease-in-out;
     }
 
     @keyframes morphShape {
-      0%   {
+      0% {
         border-radius: 0%;
         transform: rotate(0deg) scale(1);
       }
-      25%  {
+      25% {
         border-radius: 50%;
         transform: rotate(45deg) scale(1.2);
       }
-      50%  {
+      50% {
         clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
         transform: rotate(90deg) scale(1.1);
       }
-      75%  {
+      75% {
         clip-path: polygon(0 45%, 45% 0, 55% 0, 100% 45%, 100% 55%, 55% 100%, 45% 100%, 0 55%);
         transform: rotate(135deg) scale(1);
       }
@@ -87,8 +87,8 @@
 
   <script>
     const grid = document.getElementById('grid');
-    const cols = Math.ceil(window.innerWidth / 40) + 5;
-    const rows = Math.ceil(window.innerHeight / 40) + 5;
+    const cols = Math.ceil(window.innerWidth / 60) + 5;
+    const rows = Math.ceil(window.innerHeight / 60) + 5;
     for (let i = 0; i < cols * rows; i++) {
       const cell = document.createElement('div');
       cell.className = 'cell';
