@@ -13,11 +13,11 @@
     }
 
     body {
-      font-family: serif;
       background: linear-gradient(-45deg, #fbc2eb, #fcb69f, #d1c4e9, #fad0c4);
       background-size: 400% 400%;
       animation: gradientShift 20s ease infinite;
       position: relative;
+      font-family: 'Georgia', serif;
     }
 
     @keyframes gradientShift {
@@ -26,61 +26,26 @@
       100% { background-position: 0% 50%; }
     }
 
-    .texture {
+    .stars {
       position: absolute;
       inset: 0;
-      background-image: url('https://www.transparenttextures.com/patterns/cream-dust.png'); /* or any you like */
-      opacity: 0.1;
+      background-image: url('https://assets.codepen.io/1468070/stars.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      opacity: 0.3;
       z-index: 1;
       pointer-events: none;
+      animation: float 30s ease-in-out infinite alternate;
     }
 
-    .particles {
-      position: absolute;
-      inset: 0;
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    .particle {
-      position: absolute;
-      width: 6px;
-      height: 6px;
-      background: white;
-      border-radius: 50%;
-      opacity: 0.2;
-      animation: floatUp linear infinite;
-    }
-
-    @keyframes floatUp {
-      0% {
-        transform: translateY(100vh);
-        opacity: 0;
-      }
-      30% {
-        opacity: 0.3;
-      }
-      100% {
-        transform: translateY(-10vh);
-        opacity: 0;
-      }
+    @keyframes float {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-20px); }
     }
   </style>
 </head>
 <body>
-  <div class="texture"></div>
-  <div class="particles" id="particles"></div>
-
-  <script>
-    const particlesContainer = document.getElementById('particles');
-    for (let i = 0; i < 40; i++) {
-      const particle = document.createElement('div');
-      particle.classList.add('particle');
-      particle.style.left = Math.random() * 100 + 'vw';
-      particle.style.animationDuration = (8 + Math.random() * 10) + 's';
-      particle.style.animationDelay = (Math.random() * 10) + 's';
-      particlesContainer.appendChild(particle);
-    }
-  </script>
+  <div class="stars"></div>
 </body>
 </html>
